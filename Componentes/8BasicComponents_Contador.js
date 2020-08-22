@@ -11,4 +11,5 @@ Vue.component('contador', {
    num: 0
   }
  }
+ 
 })

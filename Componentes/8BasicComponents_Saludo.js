@@ -11,4 +11,5 @@ Vue.component('saludo', {
    saludo: 'Hola desde Vue'
   }
  }
+ 
 });
