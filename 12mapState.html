@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="vieport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Mapeo de estados</title>
+  <!-- development version, includes helpful console warnings-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
+ </head>
+
+ <body>
+  <div id="app">
+   <padre></padre>
+  </div>
+
+  <script>
+   Vue.component('padre', {
+     template:
+     `
+      <div>
+       <h1>Número {{num}}</h1>
+       <hijo></hijo>
+      </div>
+     `,
+     computed:{
+      ...Vuex.mapState(['num'])
+     }
+   });
+
+   Vue.component('hijo', {
+    template:
+    `
+     <div>
+      <button @click="$store.commit('aumentar')">+</button>
+      <h1>Número {{$store.state.num}}</h1>
+     </div>
+    `
+   });
+
+   const store = new Vuex.Store({
+    state:{
+      num: 10
+    },
+    mutations:{
+     aumentar(state){
+      state.num++
+     }
+    }
+   });
+
+   new Vue({
+    el: '#app',
+    store: store
+   });
+  </script>
+
+ </body>
+</html>
