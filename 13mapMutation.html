@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-COmpatible" content="ie=edege">
+    <title>Map Mutation</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
+    <body>
+        <div id="app"> 
+            <padre></padre>
+        </div>
+
+        <script>
+            Vue.component('padre',{
+                template:
+                `
+                 <div>
+                  <h1>Número: {{num}}</h1>
+                  <hijo></hijo>
+                 </div>
+                `,
+                computed: {
+                    ...Vuex.mapState(['num'])
+                }
+            });
+
+            Vue.component('hijo',{
+                template:
+                `
+                 <div>
+                  <h1>Número: {{num}}</h1>
+                  <button @click="aumentar">+</button>
+                  <button @click="disminuir(2)">-</button>
+                 </div>
+                ` ,
+                computed: {
+                    ...Vuex.mapState(['num'])
+                },
+                methods: {
+                    ...Vuex.mapMutations(['aumentar', 'disminuir'])
+                }
+            });
+
+            const store = new Vuex.Store({
+                state: {
+                    num: 10
+                },
+                mutations: {
+                    aumentar(state){
+                        state.num++
+                    },
+                    disminuir(state, n){
+                        state.num -= n
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#app',
+                store: store
+            })
+        </script>       
+    </body>
+</html>
