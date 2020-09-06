@@ -13,7 +13,13 @@ Vue.use(VueRouter)
     path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/grid',
+    name: 'Grid',
+    component: () => import(/* webpackChunkName: "grid" */ '../views/Grid.vue')
   }
+
 ]
 
 const router = new VueRouter({
