@@ -1,0 +1,20 @@
+Instalación boostrap-vue
+
+* Solo puede ser instalado en la versión 2 de vue
+
+1. Acceder desde terminal a la carpeta del proyecto donde queremos instalar boostrap-vue y correr el comando: npm install vue bootstrap-vue bootstrap
+
+2. En el archivo main.js (buscar en la carpeta src) agregar las siguientes líneas de comando
+
+	import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+	// Install BootstrapVue
+	Vue.use(BootstrapVue)
+	// Optionally install the BootstrapVue icon components plugin
+	Vue.use(IconsPlugin)
+	
+	import 'bootstrap/dist/css/bootstrap.css'
+	import 'bootstrap-vue/dist/bootstrap-vue.css'
+	
+* Las líneas deben ir arriba de la línea: Vue.config.productionTip = false
+* En caso de que no aparezca agregar al inicio del documento la línea import Vue from 'vue'
