@@ -18,6 +18,11 @@ Vue.use(VueRouter)
     path: '/grid',
     name: 'Grid',
     component: () => import(/* webpackChunkName: "grid" */ '../views/Grid.vue')
+  },
+  {
+    path: '/cards',
+    name: 'Cards',
+    component: () => import(/* webpackChunkName: "grid" */ '../views/Cards.vue')
   }
 
 ]
