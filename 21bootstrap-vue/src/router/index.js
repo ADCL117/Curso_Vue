@@ -22,9 +22,13 @@ Vue.use(VueRouter)
   {
     path: '/cards',
     name: 'Cards',
-    component: () => import(/* webpackChunkName: "grid" */ '../views/Cards.vue')
+    component: () => import(/* webpackChunkName: "cards" */ '../views/Cards.vue')
+  },
+  {
+    path: '/forms',
+    name: 'Forms',
+    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms.vue')
   }
-
 ]
 
 const router = new VueRouter({
