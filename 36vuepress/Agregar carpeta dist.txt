@@ -1,0 +1,5 @@
+Para crear la carpeta dist en una terminal dentro de nuestro proyecto escribimos el comando
+
+sudo vuepress build
+
+Una vez creada la carpeta simplemente hay que abrir una terminal dentro de ella y abrir con live server.

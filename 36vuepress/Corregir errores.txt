@@ -1,0 +1,22 @@
+DESCRIPCIÓN
+
+Al intentar compilar el proyecto la computadora se traba y la terminal muestra
+el mensaje
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory in ionic 3
+-------------------------------------------------------------------------------
+
+CAUSA
+
+La memoria utilizada por defecto en npm es insuficiente para poder compilar el
+proyecto.
+
+-------------------------------------------------------------------------------
+SOLUCIÓN
+
+Abrir una terminal y escribir el comando
+
+export NODE_OPTIONS="--max-old-space-size=4096
+
+Esto expandira la memoria de compilación de npmhasta los 4GB lo que permitirá
+ejecutar el programa.

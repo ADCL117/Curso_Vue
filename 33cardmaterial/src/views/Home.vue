@@ -7,7 +7,7 @@
 
         <v-card>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"></v-img>
-          <v-card-tittle>Lorem, ipsum dolor.</v-card-tittle>
+          <v-card-title>Lorem, ipsum dolor.</v-card-title>
           <v-card-text>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, autem libero odio maiores assumenda veritatis
             animi totam numquam nihil provident? Harum soluta maiores accusamus, quam consectetur nam sed eligendi
@@ -26,15 +26,15 @@
         <v-card>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg">
             <v-container>
-              <v-layou>
+              <v-layout>
                 <v-flex>
                   <span class="headline white--text">Lorem, ipsum dolor.</span>
                 </v-flex>
-              </v-layou>
+              </v-layout>
             </v-container>
           </v-img>
 
-          <v-card-tittle>Lorem, ipsum dolor.</v-card-tittle>
+          <v-card-title>Lorem, ipsum dolor.</v-card-title>
           <v-card-text>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, autem libero odio maiores assumenda veritatis
             animi totam numquam nihil provident? Harum soluta maiores accusamus, quam consectetur nam sed eligendi

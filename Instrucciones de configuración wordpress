@@ -1,0 +1,159 @@
+CONFIGURAR WORDPRESS CON VUEJS
+
+* ******************************************************************** *
+	Para poder iniciar worpress es necesario tener instalado Xampp, 
+	El siguiente video muestra como instalar Xampp:
+    
+	* https://www.youtube.com/watch?v=lvLm78Mx0vs
+
+	En caso de que sea nuestra primera vez instalando Wordpress ver
+	el siguiente video: 
+
+	* https://www.youtube.com/watch?v=6boxlixGho8
+
+* ******************************************************************** *
+
+
+1.- EL primer paso es inicializar Xampp, para ello tenemos dos opciones:
+
+	* Hacer uso de la herramienta gráfica proporcionada por Xampp
+	* Inicializarlo manualmente desde la terminal
+	
+	1.1.- Iniciar con Herramienta Gráfica
+	
+		
+		1.1.1.- Abrir una terminal y escribir los siguientes comandos
+		
+			cd /opt/lampp
+
+			sudo ./manager-linux-x64.run
+			
+		1.1.2.- Una vez abierta la herramienta, presionar el botón Get Started.
+		
+		1.1.3.- Seleccionar la pestaña Manage Servers, y presionar el botón que dice Star All.
+		
+		1.1.4.-Para verificar que se iniciaron los servicios, se debe abrir el navegador (Fire Fox, Goggle Chrome, etc), 
+		       en la barra de direcciones escribir localhost (sin el 8080). Al presionar enter se nos mostrará una pantalla
+		       de bienvenida de Xampp.
+		      
+	1.2.- Iniciar sin la Herramienta Gráfica
+	
+		1.2.1.- Abrir una terminal y escribir los siguientes comandos
+		
+			 sudo /opt/lampp/lampp start
+			 
+			 		
+		1.2.1.-Para verificar que se iniciaron los servicios, se debe abrir el navegador (Fire Fox, Goggle Chrome, etc), 
+		       en la barra de direcciones escribir localhost (sin el 8080). Al presionar enter se nos mostrará una pantalla
+		       de bienvenida de Xampp.
+		      
+			 
+2.- El segundo paso consiste en crear una base de datos, para ello en el navegador debemos escribir la ruta http://localhost/phpmyadmin/
+
+	2.1.- Una vez dentro debemos de seleccionar la opción base de datos que se encuentra en la parte superior de la interfaz.
+	
+	2.2.- Escribimos el nombre de la base de datos en la casilla correspondiente y presionamos el botón crear.
+	
+	2.3.- A continuación debemos buscar el nombre de la carpeta en la que estan almacenados nuestros proyectos. 
+	      Para ello, en nuestra pc nos dirigmos a sistema de archivos,
+	      de ahí buscamos la opt y vamos al subdirectorio : opt/lampp/htdocs
+	      
+	2.4.- En ese subdirectorio deben existir 3 carpetas (dashboard, img, webalizer) más la carpeta que se obtiene cuando descargas wordpress
+	      dando un total de 4 carpetas.
+	      
+		2.4.1.- En caso de querer tener más de un proyecto en wordpress crear una carpeta (es posible que pida permisos de administrador) 
+		        en el directorio opt/lampp/htdocss e introducir la carpeta que corresponde a wordpress dentro de esta nueva carpeta.
+		        
+		2.4.2.- Para crear un nuevo proyecto debemos copiar la carpeta de wordpress y cambiarle el nombre al nombre de nuestro nuevo
+		proyecto.
+		
+		2.4.3.-Ahora debemos de cerrar la carpeta y nuevamente abrir el navegador dirigiendonos a la dirección 
+		
+		http://localhost/nombre-de-la-carpeta-donde-guradamos-todos-los-proyectos/
+		
+		2.4.4.- Nos apareceran los nombres de todas las carpetas de nuestros proyectos, seleccionamos la carpeta que corresponde a 
+		        nuestro nuevo proyecto.
+		        
+	2.5.- Se mostrará la interfaz para configurar wordpress, presionamos el botón vamos a ello.
+	
+	2.6.- Llenamos los campos de nombre de la base de datos, nombre de usuario, el nombre de usuario es root y la contraseña 
+	      la dejeamos como un campo vacío.
+	      
+		2.6.1.- En caso de que nos muestre que no se a podido crear el archivo wp-config.php deberemos dirigirnos a la carpeta donde se encuentra el proyecto,
+		        crear el archivo wp-config.php, y copiar el texto que se nos muestra en el navegador. 
+		        
+			opt/lampp/htdocs/carpeta-donde-guradamos-todos-los-proyectos/nombre-del proyecto.
+			
+	2.7.-Presionamos el botón Ejecutar la instalación
+	
+	2.8.- LLenamos los campos y dejamos desmarcada la casilla visibilidad en los motores de busqueda y presionamos el botón instalar wordpress.
+	
+	2.9.- Presionamos acceder
+	
+	2.10.- Introducimos el usuario y contraseña que creamos en 2.8 y presionamos acceder
+	
+	2.11.- Una vez dentro del escritorio es necesario acceder a el apartado Ajustes, seleccionamos enlaces permanentes, seleccionamos la opción
+	       nombre de la entrada y presionamos el botón guardar cambios que se encuentra en la sección inferior izquierda.
+	       
+	2.12.- En ocasiones cuando queremos instalar pluggins o actualizar el programa, wordpress puede llegar a pedir un hostname, usuario FTP y contraseña FTP.
+	       Para solucionar esto, debemos acceder a
+	       
+	       opt/lampp/htdocs/carpeta-donde-guradamos-todos-los-proyectos/nombre-del proyecto
+	       
+	2.13.- Abrir con permisos de administrador el archivo wp-config.php y agregar al final del documento la línea
+	
+		define('FS_METHOD','direct');
+		
+		2.13.1.- En ocasiones los pluggins no se pueden instalar debido a la falta de permisos en uno o varios archivos el comando chmod puede solucionar 
+		         este problema, una buena forma de comprobar este problema es en el escritorio de wordpress ir a la pestaña heeramientas y seleccionar
+		         la opción salud del sitio.
+		
+	2.14.- Ir a el apartado plugins, añadir nuevo y buscar JWT, seleccionar el plugin de color azul que dice
+	
+	JWT Authentication for WP-API
+	
+	2.15.- Una vez instalado el plugin presionamos el botón activa, a continuación abrimos la carpeta donde esta nuestro proyecto
+	
+	opt/lampp/htdocs/carpeta-donde-guradamos-todos-los-proyectos/nombre-del proyecto.
+	
+	2.16.- Abrir el archivo .htaccess, este requiere permisos de administrador. En caso de no poder acceder es posible copiar la información del archivo y
+	       crear nuestro propio archivo .htaccess
+	       
+	2.17.- Dentro del archivo agregar las siguientes líneas (arriba de la línea que dice </IfModule>)
+	
+		RewriteCond %{HTTP:Authorization} ^(.*)
+		RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+		SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+		
+		</IfModule>
+		
+	2.18.- Abrir el archivo wp-config.php y agregar debajo de la línea 56 las siguientes dos líneas
+	
+	define('JWT_AUTH_SECRET_KEY', 'clave-creada-en-2.8 ');
+	define('JWT_AUTH_CORS_ENABLE', true);
+	
+		2.18.1.- No olvides que en la primera línea debes poner la clave creada en el apartado 2.8 
+	
+	
+	
+	2.20.- Cuando ya se tenga el registro si desea volver a acceder al escritorio de wordpress debemos de acceder a
+	http://localhost/nombre-de-la-carpeta-donde-guradamos-todos-los-proyectos/nombre-del-proyecto/wp-loginphp?loggedout=true&wp_lang=es_ES 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

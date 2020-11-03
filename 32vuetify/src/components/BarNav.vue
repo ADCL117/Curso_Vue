@@ -23,6 +23,19 @@
                        <p class="white--text mt-3 headline">Juanito Pérez</p> 
                     </v-flex>
                 </v-layout> 
+
+                <v-layout column>
+                    <v-flex >
+                        <v-btn color="success" block :to="{name: 'Home'}" class="mb-3">
+                            Home
+                        </v-btn>
+
+                        <v-btn color="success" block :to="{name: 'Tareas'}">
+                            Lista de Tareas
+                        </v-btn>
+
+                    </v-flex>
+                </v-layout> 
             </v-navigation-drawer>
 
     </v-container>

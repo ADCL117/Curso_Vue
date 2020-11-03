@@ -19,6 +19,11 @@ Vue.use(VueRouter)
     path: '/botones',
     name: 'Botones',
     component: () => import(/* webpackChunkName: "botones" */ '../views/Botones.vue')
+  },
+  {
+    path: '/tareas',
+    name: 'Tareas',
+    component: () => import(/* webpackChunkName: "tareas" */ '../views/Tareas.vue')
   }
 ]
 
